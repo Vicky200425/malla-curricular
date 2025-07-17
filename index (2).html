@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Malla Curricular Trabajo Social</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 1rem;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .semestre {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin: 1rem auto;
+      max-width: 600px;
+      padding: 1rem;
+      transition: all 0.3s ease;
+    }
+    .semestre:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .titulo {
+      font-weight: bold;
+      cursor: pointer;
+      color: #2c3e50;
+    }
+    .contenido {
+      display: none;
+      margin-top: 0.5rem;
+    }
+    .contenido ul {
+      padding-left: 1.2rem;
+    }
+    .open .contenido {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Malla Curricular - Trabajo Social</h1>
+  <div id="malla">
+    <!-- Cada semestre se inserta desde JavaScript -->
+  </div>
+
+  <script>
+    const semestres = [
+      {
+        nombre: "Primer semestre",
+        asignaturas: [
+          "Fundamentos de Trabajo Social",
+          "Historia del Trabajo Social",
+          "Sociología General",
+          "Psicología General",
+          "Lectoescritura Académica",
+          "Constitución Política y DDHH"
+        ]
+      },
+      {
+        nombre: "Segundo semestre",
+        asignaturas: [
+          "Teoría del Trabajo Social I",
+          "Antropología",
+          "Psicología del Desarrollo",
+          "Sociología de la Familia",
+          "Economía General",
+          "Electiva Institucional"
+        ]
+      },
+      {
+        nombre: "Tercer semestre",
+        asignaturas: [
+          "Teoría del Trabajo Social II",
+          "Estadística Social",
+          "Psicología Social",
+          "Problemáticas Sociales Contemporáneas",
+          "Comunicación y TIC",
+          "Electiva de Bienestar"
+        ]
+      },
+      {
+        nombre: "Cuarto semestre",
+        asignaturas: [
+          "Investigación Social I",
+          "Métodos y Técnicas Cuantitativas",
+          "Intervención Social I",
+          "Fundamentos de Política Social",
+          "Electiva I (disciplinar o complementaria)"
+        ]
+      },
+      {
+        nombre: "Quinto semestre",
+        asignaturas: [
+          "Investigación Social II",
+          "Intervención Social II",
+          "Métodos y Técnicas Cualitativas",
+          "Política Pública y Desarrollo",
+          "Electiva II"
+        ]
+      },
+      {
+        nombre: "Sexto semestre",
+        asignaturas: [
+          "Práctica Profesional I",
+          "Intervención Social III",
+          "Electiva III",
+          "Ética Profesional",
+          "Seminario de Profundización I"
+        ]
+      },
+      {
+        nombre: "Séptimo semestre",
+        asignaturas: [
+          "Práctica Profesional II",
+          "Trabajo Social con Grupos",
+          "Trabajo Social y Comunidad",
+          "Seminario de Profundización II",
+          "Electiva IV"
+        ]
+      },
+      {
+        nombre: "Octavo semestre",
+        asignaturas: [
+          "Práctica Profesional III",
+          "Trabajo Social con Individuos y Familias",
+          "Seminario de Investigación I",
+          "Electiva V",
+          "Ética y Ciudadanía"
+        ]
+      },
+      {
+        nombre: "Noveno semestre",
+        asignaturas: [
+          "Práctica Profesional IV",
+          "Seminario de Investigación II",
+          "Gestión Social",
+          "Electiva VI",
+          "Optativa Libre"
+        ]
+      },
+      {
+        nombre: "Décimo semestre",
+        asignaturas: [
+          "Práctica Profesional V",
+          "Seminario de Investigación III",
+          "Electiva VII",
+          "Formulación y Evaluación de Proyectos Sociales"
+        ]
+      }
+    ];
+
+    const contenedor = document.getElementById("malla");
+
+    semestres.forEach(sem => {
+      const div = document.createElement("div");
+      div.className = "semestre";
+      div.innerHTML = `
+        <div class="titulo">${sem.nombre}</div>
+        <div class="contenido"><ul>${sem.asignaturas.map(a => `<li>${a}</li>`).join("")}</ul></div>
+      `;
+      div.querySelector(".titulo").addEventListener("click", () => {
+        div.classList.toggle("open");
+      });
+      contenedor.appendChild(div);
+    });
+  </script>
+</body>
+</html>
